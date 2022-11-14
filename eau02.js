@@ -23,7 +23,6 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 let arrArg =process.argv.slice(2)
 let arg1 = process.argv[2]
 let resFinal = ""
-// console.log(arrArg.length);
 
 //f() utilisées
 function reverseArg(){

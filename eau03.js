@@ -12,6 +12,7 @@ Afficher -1 si le paramètre est négatif ou mauvais.
 
 //Initialisation des variables
 let arg1 = process.argv[2]
+let arg1Decimal = arg1.toString()
 let arg2 = process.argv[3]
 const suiteFabo = [0, 1, 1, 2, 3, 5, 8, 13, 21]
 let nbArg1 = parseInt(arg1);
@@ -28,6 +29,11 @@ function reverseArg(arg1){
 //Gestion d'erreurs
 if (arg1 == undefined || arg1 < 0 || isNaN(nbArg1)) {
     console.log("Merci d'entrer des arguments valables");
+    return
+}
+
+if(arg1.indexOf(".") == 1) {
+    console.log("Merci d'entrer un chiffre entier valable");
     return
 }
 
