@@ -56,7 +56,12 @@ function suiteTriple() {
 }
 
 //Gestion d'erreurs
+let arg =process.argv[2]
 
+if (arg !== undefined) {
+    console.log("Aucun arguemnt ne sera accepté");
+    return
+}
 
 //Parsing
 
