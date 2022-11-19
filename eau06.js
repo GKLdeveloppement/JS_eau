@@ -58,7 +58,6 @@ if(!isNaN(arg1) || !isNaN(arg2)) {
 
 //Parsing
 
-
 //Traitement
 let result = majSur2()
 

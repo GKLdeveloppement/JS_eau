@@ -19,16 +19,29 @@ let arg1 = process.argv[2]
 let arg2 = process.argv[3]
 let res = ""
 
+
 //f() utilisées
+function majFirstChar() {
+    arg1 = arg1.toLowerCase()
+    arr = arg1.split(" ")
+
+    for (let i = 0; i < arr.length; i++) {
+        //récupérer le premier caractère et en faire MAJ
+        let firstCharUpp = arr[i].charAt(0).toUpperCase()
+
+        res += firstCharUpp + arr[i].slice(1) + " "
+    }
+    return res
+}
 
 
 //Gestion d'erreurs
-if (arg1 == undefined || arg2 == undefined || argUnvalaible !== undefined) {
-    console.log("Merci d'entrer 2 arguments valables");
+if (arg1 == undefined || arg2 !== undefined) {
+    console.log("Merci d'entrer 1 arguments valables");
     return
 }
 
-if(!isNaN(arg1) || !isNaN(arg2)) {
+if(!isNaN(arg1)) {
     console.log("Merci d'entrer une valeur valable");
     return
 }
@@ -37,7 +50,7 @@ if(!isNaN(arg1) || !isNaN(arg2)) {
 
 
 //Traitement
-let result = ()
+let result = majFirstChar()
 
 //Affichage résultat
 console.log(result);
