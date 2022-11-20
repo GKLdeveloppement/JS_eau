@@ -21,18 +21,38 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 //Initialisation des variables
 let arg1 = process.argv[2]
 let arg2 = process.argv[3]
-let res = ""
+let arg3 = process.argv[4]
+
+let args = process.argv.slice(2)
+let lastItem = args.length -1
+let argWanted = args[lastItem]
+let counter = 0
+let res = 0
+
 
 //f() utilisées
+function indexWanted(){
+    for (let i = 0; i < args.length-1; i++) {
 
+        if (args[i] == argWanted) {
+            counter ++
+            res = args.indexOf(argWanted)
+        }
+    }
+    if (counter > 1) {
+        return 0
+    } else {
+        return res
+    }
+}
 
 //Gestion d'erreurs
-if (arg1 == undefined || arg2 == undefined || argUnvalaible !== undefined) {
-    console.log("Merci d'entrer 2 arguments valables");
+if (arg1 == undefined || arg2 == undefined || arg3 == undefined ) {
+    console.log("Merci d'entrer au minimum 3 arguments valables");
     return
 }
 
-if(!isNaN(arg1) || !isNaN(arg2)) {
+if(!isNaN(arg1) || !isNaN(arg2) || !isNaN(arg3)) {
     console.log("Merci d'entrer une valeur valable");
     return
 }
@@ -41,7 +61,7 @@ if(!isNaN(arg1) || !isNaN(arg2)) {
 
 
 //Traitement
-let result = ()
+let result = indexWanted()
 
 //Affichage résultat
 console.log(result);
