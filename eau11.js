@@ -20,21 +20,59 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 */
 
 //Initialisation des variables
+let args = process.argv.slice(2)
+const nbRegex = /^-?[0-9]\d*(\.\d+)?$/
 let arg1 = process.argv[2]
 let arg2 = process.argv[3]
-let res = ""
+let arg3 = process.argv[4]
+let res = 0
 
 //f() utilisées
 
+//Permer de vérifier si les arguments sont bien tous des nombres (pos ou neg)
+function isNumber(args){
+    let counter = 0
+    for (let i = 0; i < args.length; i++) {
+        if (args[i].match(nbRegex)) {
+            res = true
+        } else {
+            counter ++
+        }        
+    }
+    return counter
+}
+
+//trié correctement le tableau avec .sort()
+function compareNb(a, b) {
+    return a - b;
+}
+
+//main func
+function diffMin() {
+    let arSort = args.sort(compareNb)
+
+    //arr qui contient les resultats
+    let arrRes = []
+    //On compare chaque élément avec le suivant et on stock
+    for (let i = 0; i < arSort.length-1; i++) {
+        let diffNb = Math.abs(arSort[i] - arSort[i+1])
+        arrRes.push(diffNb)
+    }
+
+    //On return la valeur minimal du tableau
+    return res = Math.min(...arrRes);
+
+
+}
 
 //Gestion d'erreurs
-if (arg1 == undefined || arg2 == undefined || argUnvalaible !== undefined) {
-    console.log("Merci d'entrer 2 arguments valables");
+if (arg1 == undefined || arg2 == undefined || arg3 == undefined) {
+    console.log("Merci d'entrer 3 arguments valables au minimum");
     return
 }
 
-if(!isNaN(arg1) || !isNaN(arg2)) {
-    console.log("Merci d'entrer une valeur valable");
+if (isNumber(args) > 1) {
+    console.log("Ce script ne peut prendre que des chiffres en arguments");
     return
 }
 
@@ -42,7 +80,7 @@ if(!isNaN(arg1) || !isNaN(arg2)) {
 
 
 //Traitement
-let result = ()
+let result = diffMin()
 
 //Affichage résultat
 console.log(result);
