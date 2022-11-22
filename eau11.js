@@ -62,7 +62,6 @@ function diffMin() {
     //On return la valeur minimal du tableau
     return res = Math.min(...arrRes);
 
-
 }
 
 //Gestion d'erreurs
@@ -71,7 +70,7 @@ if (arg1 == undefined || arg2 == undefined || arg3 == undefined) {
     return
 }
 
-if (isNumber(args) > 1) {
+if (isNumber(args) > 0) {
     console.log("Ce script ne peut prendre que des chiffres en arguments");
     return
 }
